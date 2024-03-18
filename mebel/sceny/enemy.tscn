@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://6pv5mg3tmhnr"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_f130x"]
+[ext_resource type="Texture2D" uid="uid://cabsh6eo18sb6" path="res://Sprites/enemy0.png" id="2_6b5ea"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ud5rk"]
+radius = 9.0
+height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_56vjs"]
+radius = 53.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8oqkr"]
+radius = 7.0
+height = 14.0
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_f130x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6b5ea")
+
+[node name="enemy_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ud5rk")
+debug_color = Color(0.662745, 0.513726, 0, 0.419608)
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_56vjs")
+
+[node name="hitbox_collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_8oqkr")
+debug_color = Color(0.941176, 0.156863, 0.470588, 0.419608)
+
+[connection signal="area_entered" from="enemy_hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
