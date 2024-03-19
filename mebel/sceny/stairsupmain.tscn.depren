@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cagpm5437r2qd"]
+
+[ext_resource type="Script" path="res://scripts/stairsup.gd" id="1_t6f5j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dqjk"]
+size = Vector2(14.5, 14.5)
+
+[node name="Area2D" type="Area2D"]
+position = Vector2(26, 8)
+script = ExtResource("1_t6f5j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_8dqjk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

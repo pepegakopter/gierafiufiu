@@ -32,7 +32,3 @@ debug_color = Color(0.662745, 0.415686, 0.784314, 0.419608)
 
 [node name="attack_cooldown" type="Timer" parent="."]
 wait_time = 0.7
-
-[connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
-[connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
-[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

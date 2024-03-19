@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://yq60yuepa5n"]
+
+[ext_resource type="Script" path="res://scripts/stairsbossroom.gd" id="1_tklvv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ld6af"]
+size = Vector2(12, 12)
+
+[node name="stairsbossroom" type="Area2D"]
+position = Vector2(680, -169)
+script = ExtResource("1_tklvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ld6af")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
