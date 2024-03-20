@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbqjyb4rer7rf"]
+[gd_scene load_steps=8 format=3 uid="uid://bbqjyb4rer7rf"]
 
 [ext_resource type="Texture2D" uid="uid://b6tbnw144qee6" path="res://Tilesheet/colored_packed.png" id="1_5ohoe"]
 [ext_resource type="PackedScene" uid="uid://6pv5mg3tmhnr" path="res://sceny/enemy.tscn" id="2_2rt8e"]
 [ext_resource type="PackedScene" uid="uid://ckm4x428w2o3l" path="res://sceny/stairsupscene.tscn" id="3_hpmxh"]
 [ext_resource type="PackedScene" uid="uid://ul8517dvb1ur" path="res://sceny/player.tscn" id="4_7pwtc"]
+[ext_resource type="PackedScene" uid="uid://d23hu6qiit1yd" path="res://sceny/boss.tscn" id="5_dpsn5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vhkge"]
 texture = ExtResource("1_5ohoe")
@@ -3285,3 +3286,6 @@ position = Vector2(55, -61)
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
+
+[node name="GolemBoss" parent="." instance=ExtResource("5_dpsn5")]
+position = Vector2(410, 155)
